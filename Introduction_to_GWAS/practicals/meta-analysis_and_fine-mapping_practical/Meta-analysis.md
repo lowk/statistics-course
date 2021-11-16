@@ -223,6 +223,14 @@ For example, we could now make a forest plot for the first SNP:
 
 <img src="solutions/forest_plot_1st_SNP.png">
 
+As we saw in the lecture, we can also use the package meta to make a forest plot for the first SNP that also includes a random effects analysis and heterogeneity test:
+```
+  library(meta)
+  forest.meta(metagen(c(study1$beta[1],study2$beta[1]),c(study1$se[1],study2$se[1])))
+```
+<img src="solutions/forest_plot_1st_SNP_metagen.png">
+
+
 **Question.** What does the forest plot look like for the 'top' SNPs, i.e. for those with the lowest P-values (or highest Bayes factors)?  Plot a few of them and look at them.  Make sure you understand how the data in the meta-analysis file corresponds to the data on the plot.
 
 **Note.** Forest plots are deceptively simple - they don't look like there's much going on, but whenever I try to draw one I find it takes quite a bit of code.  (Like the `draw.forest.plot()` function above, which already has ~40 lines of code).  This is typical of visualisation in general - the code always gets lengthy - and I think it is not really surprising.  It is because in a visualistion you are trying to convey a great deal of information clearly in a small space: this often takes great deal of careful tweaking to get right.  Don't skimp on this!
